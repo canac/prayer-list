@@ -1,3 +1,5 @@
+<%= turbo_stream_from partner %>
+
 <%= turbo_frame_tag dom_id(partner) do %>
   <%= form_with model: partner, class: ("prayed" if partner.prayed) do |form| %>
     <%= partner.name %>
