@@ -1,5 +1,7 @@
-<%= form_with model: partner, class: ("prayed" if partner.prayed) do |form| %>
-  <%= partner.name %>
-  <%= "(prayed)" if partner.prayed %>
-  <%= form.submit %>
+<%= turbo_frame_tag dom_id(partner) do %>
+  <%= form_with model: partner, class: ("prayed" if partner.prayed) do |form| %>
+    <%= partner.name %>
+    <%= "(prayed)" if partner.prayed %>
+    <%= form.submit %>
+  <% end %>
 <% end %>
