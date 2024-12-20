@@ -1,5 +1,12 @@
 <h1>Prayer List (<%= @partners.count %> partners)</h1>
 
-<% @partners.each do |partner| %>
-  <p><%= partner.name %></p>
-<% end %>
+<form action="/" method="post" class="prayer-list">
+  <% @partners.each do |partner| %>
+    <label>
+      <input type="checkbox" name="partner[<%= partner.id %>]" <%= "checked" if partner.prayed %> />
+      <%= partner.name %>
+    </label>
+  <% end %>
+
+  <button type="submit">Save</button>
+</form>

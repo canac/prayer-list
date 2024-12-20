@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ form.prayer-list label {
+  display: block;
+ }
