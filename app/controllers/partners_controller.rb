@@ -4,6 +4,9 @@ class PartnersController < ApplicationController
     partner = Partner.find(params[:id])
     partner.update! prayed: !partner.prayed
 
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace(partner, partial: "partner/form", locals: { partner: partner }) }
+    end
   end
 end
